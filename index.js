@@ -27,7 +27,7 @@ var assertions = [];
 var testResult = {
     failedCount: 0, 
     specResults: [{
-            description: 'Protractor Watcher Line Plugin',
+            description: 'Watcher Plugin',
             assertions: assertions,
             duration: 1
         }]
