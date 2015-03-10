@@ -1,7 +1,7 @@
 {
     "name": "WatcherPlugin",
     "version": "0.0.1",
-    "description": "Protractor Watcher Count Plugin",
+    "description": "Watcher Plugin for Protractor",
     "main": "index.js",
     "author": {
         "name": "Raphael Hirtenfelder",

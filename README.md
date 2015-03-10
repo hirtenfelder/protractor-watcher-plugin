@@ -12,7 +12,7 @@ If the number of watchers exceeds the allowed limit, the test fails. You can def
 ## It's BETA
 
 Keep in mind, the Protractor Plugin API is BETA and may change without a major version bump.
-The plugin is tested with Protractor 1.8.0 and AngularJS 1.3.0
+The plugin runs with Protractor 1.8.0 and AngularJS 1.3.0.
 
 ## Plugin configuration
 

@@ -2,10 +2,12 @@
 var q = require('q');
 
 /**
- * This plugin for Protractor will help you, to keep the number of watchers used by your AngularJS application in sight.
+ * This plugin for Protractor will help you, to keep the number of watchers used by your AngularJS application 
+ * in sight.
  *
- * It simply counts all the watchers of the page which is being tested and compares it with a predefined value (maxAllowedWatchers). 
- * If the number of watchers exceeds the allowed limit, the test fails. You can define a general limit or limits with url patterns.
+ * It simply counts all the watchers of the page which is being tested and compares it with a predefined value 
+ * (maxAllowedWatchers). If the number of watchers exceeds the allowed limit, the test fails. You can define a 
+ * general limit or limits with url patterns.
  *
  * Plugin Configuration:
  * 

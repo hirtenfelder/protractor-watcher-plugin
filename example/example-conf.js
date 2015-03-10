@@ -9,7 +9,7 @@ exports.config = {
         browserName: 'chrome'
     },
     plugins: [{
-            path: 'C:/Workspace/luna/ProtractorWatcherLine',
+            path: 'path/to/the/plugin',
             maxAllowedWatchers: 15,
             urlPatterns: [{
                     urlPattern: '/protractor-demo',
