@@ -1,0 +1,17 @@
+﻿/**
+ * Example spec used from Protractor tutorial:
+ * https://github.com/angular/protractor/blob/master/docs/tutorial.md
+ * 
+ */
+describe('angularjs homepage', function () {
+    it('should add one and two', function () {
+        browser.get('http://juliemr.github.io/protractor-demo/');
+        element(by.model('first')).sendKeys(1);
+        element(by.model('second')).sendKeys(2);
+        
+        element(by.id('gobutton')).click();
+        
+        expect(element(by.binding('latest')).getText()).
+        toEqual('3');
+    });
+});

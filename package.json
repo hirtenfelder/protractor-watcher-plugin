@@ -1,0 +1,21 @@
+{
+    "name": "WatcherPlugin",
+    "version": "0.0.1",
+    "description": "Protractor Watcher Count Plugin",
+    "main": "index.js",
+    "author": {
+        "name": "Raphael Hirtenfelder",
+        "email": "hirtenfelder@bluewin.ch"
+    },
+    "keywords": [
+        "angular",
+        "protractor",
+        "watcher",
+        "performance",
+        "test"
+    ],
+    "devDependencies": {
+        "protractor": "1.8.0",
+        "q": "1.0.0"
+    }
+}
