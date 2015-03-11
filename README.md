@@ -2,7 +2,6 @@
 
 To many watchers may have a negative impact for the performance of an AngularJS application. In particular
 if you don't use one-time-bindings (new with AngularJS 1.3) in cobination with ng-repeat or ng-grid.
-
 This [Protractor plugin](https://github.com/angular/protractor/blob/master/plugins/README.md) will help you, 
 to keep the number of watchers used by your AngularJS application in sight. 
 
@@ -12,7 +11,14 @@ If the number of watchers exceeds the allowed limit, the test fails. You can def
 ## It's BETA
 
 Keep in mind, the Protractor Plugin API is BETA and may change without a major version bump.
-The plugin runs with Protractor 1.8.0 and AngularJS 1.3.0.
+
+## Getting Started
+
+The plugin runs with Protractor 1.8.0 and AngularJS 1.3. Once you're familiar with that process, you may install this plugin with the node package manager:
+
+```
+npm install protractor-watcher-plugin
+```
 
 ## Plugin configuration
 
