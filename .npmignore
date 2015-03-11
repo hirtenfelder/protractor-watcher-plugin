@@ -1,2 +1,11 @@
-example
+.git/
+example/
+node_modules/
+spec/
+.gitattributes
+.gitignore
+.npmignore
+.ntvs_analysis.dat
 WatcherPlugin.njsproj
+WatcherPlugin.sln
+WatcherPlugin.v12.suo

@@ -1,5 +1,5 @@
 {
-    "name": "WatcherPlugin",
+    "name": "protractor-watcher-plugin",
     "version": "0.0.1",
     "description": "Watcher Plugin for Protractor",
     "main": "index.js",
