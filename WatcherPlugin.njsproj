@@ -35,6 +35,7 @@
     <Compile Include="example\example-spec.js" />
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
+    <Content Include=".npmignore" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

@@ -36,10 +36,10 @@ var testResult = {
 /**
  * Called after each test block (in Jasmine, this means an `it` block) completes.
  *
- * @param {Object} Configuration object with general maxAllowedWatchers and url patterns
+ * @param {object} Configuration object with general maxAllowedWatchers and url patterns
  * @param {boolean} passed True if the test passed.
  *
- * @return Object Returns a promise with the test result which will be merged with the Protractor result object.
+ * @return {object} Returns a promise with the test result which will be merged with the Protractor result object.
  */
 function postTest(config, passed) {
     var deffered = q.defer();
@@ -48,9 +48,8 @@ function postTest(config, passed) {
     }
     
     browser.driver.getCurrentUrl().then(function (url) {
-        return getMaxAllowedWatchers(config, url);
-    }).then(function (maxAllowedWatchers) {
         browser.driver.executeScript(countNumberOfWatchers).then(function (numberOfWatchers) {
+            var maxAllowedWatchers = getMaxAllowedWatchers(config, url);
             checkMaxAllowedWatchers(numberOfWatchers, maxAllowedWatchers);
             deffered.resolve(testResult);
         }, function (error) {
@@ -65,11 +64,10 @@ function postTest(config, passed) {
  * Reads the plugin configuration and returns the maximum allowed number of watchers for the page which is being tested.
  * If more than one pattern is valid, it will return the last matched in the configuration object.
  * 
- * @param {Object} config Configuration object with general maxAllowedWatchers and url patterns
+ * @param {object} config Configuration object with general maxAllowedWatchers and url patterns
  * @param {string} url The url of the page which is being tested
  */
 function getMaxAllowedWatchers(config, url) {
-    var defferedUrl = q.defer();
     var maxAllowedWatchers = config.maxAllowedWatchers;
     if (config.urlPatterns) {
         config.urlPatterns.forEach(function (conf) {
@@ -78,8 +76,7 @@ function getMaxAllowedWatchers(config, url) {
             }
         });
     }
-    defferedUrl.resolve(maxAllowedWatchers);
-    return defferedUrl.promise;
+    return maxAllowedWatchers;
 }
 
 /**
@@ -101,7 +98,8 @@ function checkMaxAllowedWatchers(numberOfWatchers, maxAllowedWatchers) {
 }
 
 /**
- * Function that is used to find out the number of watchers.
+ * Function that is used to find out the number of watchers. Found on
+ * http://stackoverflow.com/questions/18499909/how-to-count-total-number-of-watches-on-a-page
  * 
  * @returns {number} Returns the number of watchers of the page which is being tested
  */
