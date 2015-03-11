@@ -1,6 +1,7 @@
 {
     "name": "protractor-watcher-plugin",
     "version": "0.0.1",
+    "license": "MIT",
     "description": "Watcher Plugin for Protractor",
     "main": "index.js",
     "author": {
