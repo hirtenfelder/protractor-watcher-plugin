@@ -1,8 +1,8 @@
 ﻿# Watcher Plugin
 
-To many watchers may have a negative impact for the performance of an AngularJS application. In particular
+To many watchers may have a negative impact for the performance of an [AngularJS](https://www.angularjs.org/) application. In particular
 if you don't use one-time-bindings (new with AngularJS 1.3) in cobination with ng-repeat or ng-grid.
-This [Protractor plugin](https://github.com/angular/protractor/blob/master/plugins/README.md) will help you, 
+This [Protractor plugin](https://github.com/angular/protractor/blob/master/docs/plugins.md) will help you, 
 to keep the number of watchers used by your AngularJS application in sight. 
 
 It simply counts all the watchers of the page which is being tested and compares it with a predefined value (maxAllowedWatchers). 
@@ -14,7 +14,7 @@ Keep in mind, the Protractor Plugin API is BETA and may change without a major v
 
 ## Getting Started
 
-The plugin runs with Protractor 1.8.0 and AngularJS 1.3. Once you're familiar with that process, you may install this plugin with the node package manager:
+The plugin runs with [Protractor](http://angular.github.io/protractor/#/) 1.8.0 and AngularJS 1.3.15. Once you're familiar with that process, you may install this plugin with the node package manager:
 
 ```
 npm install protractor-watcher-plugin
@@ -52,11 +52,19 @@ exports.config = {
 
 To run the example spec do these steps:
 
-- Start the Selenium server (webdriver-manager start)
+- Start the Selenium server (node node_modules/protractor/bin/webdriver-manager start)
 - Start Protractor (node node_modules/protractor/bin/protractor example/example-conf.js)
 
 If you run the example spec together with the example configuration, the test should fail and logs following message:
 
 ```
 The maximum number of watchers [12] has been exceeded. Number of watchers found [13]
+```
+
+### Test suite
+
+To run the test suite just use the provided npm test script:
+
+```
+npm test
 ```

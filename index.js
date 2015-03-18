@@ -1,7 +1,4 @@
-﻿'use strict';
-var q = require('q');
-
-/**
+﻿/**
  * This plugin for Protractor will help you, to keep the number of watchers used by your AngularJS application 
  * in sight.
  *
@@ -23,6 +20,9 @@ var q = require('q');
  *   }]
  */
 
+'use strict';
+var q = require('q');
+
 var assertions = [];
 var testResult = {
     failedCount: 0, 
@@ -35,7 +35,7 @@ var testResult = {
 
 /**
  * Called after each test block (in Jasmine, this means an `it` block) completes.
- *
+ * 
  * @param {object} Configuration object with general maxAllowedWatchers and url patterns
  * @param {boolean} passed True if the test passed.
  *
@@ -47,6 +47,7 @@ function postTest(config, passed) {
         deffered.resolve();
     }
     
+    // jshint browser: true
     browser.driver.getCurrentUrl().then(function (url) {
         browser.driver.executeScript(countNumberOfWatchers).then(function (numberOfWatchers) {
             var maxAllowedWatchers = getMaxAllowedWatchers(config, url);

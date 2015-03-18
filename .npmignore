@@ -1,7 +1,6 @@
 .git/
 example/
 node_modules/
-spec/
 .gitattributes
 .gitignore
 .npmignore

@@ -33,9 +33,14 @@
     <Compile Include="index.js" />
     <Compile Include="example\example-conf.js" />
     <Compile Include="example\example-spec.js" />
+    <Compile Include="spec\test-spec.js" />
+    <Compile Include="spec\test-conf.js" />
+    <Compile Include="spec\test.js" />
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
+    <Content Include=".jshintrc" />
     <Content Include=".npmignore" />
+    <Content Include="spec\testApp.html" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
     <Content Include="README.md" />
