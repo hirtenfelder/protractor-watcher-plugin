@@ -2,7 +2,6 @@
  * Plugin Tests. The testApp.html should have 36 watchers.
  * 
  */
-
 var plugin = require('../index.js');
 
 describe('protractor-watcher-plugin test', function () {

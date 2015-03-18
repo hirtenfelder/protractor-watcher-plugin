@@ -2,7 +2,6 @@
  * Simple test runner that starts the selenium server and an http-server before running the tests.
  * 
  */
-
 var sys = require('sys')
 var exec = require('child_process').exec;
 

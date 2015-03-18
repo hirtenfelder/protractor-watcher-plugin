@@ -52,6 +52,7 @@ exports.config = {
 
 To run the example spec do these steps:
 
+- Update Driver Manager (node node_modules/protractor/bin/webdriver-manager update)
 - Start the Selenium server (node node_modules/protractor/bin/webdriver-manager start)
 - Start Protractor (node node_modules/protractor/bin/protractor example/example-conf.js)
 

@@ -1,5 +1,5 @@
 ﻿/**
- * Example Protractor configuration file. Note: The example should fail.
+ * Test Protractor configuration file.
  * 
  */
 exports.config = {
