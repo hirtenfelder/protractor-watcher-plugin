@@ -20,7 +20,7 @@
         "test": "node spec/test.js"
     },
     "devDependencies": {
-        "protractor": "1.8.0",
+        "protractor": "2.0.0",
         "q": "1.0.0",
         "jshint": "2.6.3",
         "http-server": "0.7.5"

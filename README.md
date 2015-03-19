@@ -14,7 +14,7 @@ Keep in mind, the Protractor Plugin API is BETA and may change without a major v
 
 ## Getting Started
 
-The plugin runs with [Protractor](http://angular.github.io/protractor/#/) 1.8.0 and AngularJS 1.3.15. Once you're familiar with that process, you may install this plugin with the node package manager:
+The plugin runs with [Protractor](http://angular.github.io/protractor/#/) 2.0.0 and AngularJS 1.3.15. Once you're familiar with that process, you may install this plugin with the node package manager:
 
 ```
 npm install protractor-watcher-plugin
@@ -52,9 +52,9 @@ exports.config = {
 
 To run the example spec do these steps:
 
-- Update Driver Manager (node node_modules/protractor/bin/webdriver-manager update)
-- Start the Selenium server (node node_modules/protractor/bin/webdriver-manager start)
-- Start Protractor (node node_modules/protractor/bin/protractor example/example-conf.js)
+- Update Driver Manager (webdriver-manager update)
+- Start Selenium (webdriver-manager start)
+- Run Protractor (protractor example/example-conf.js)
 
 If you run the example spec together with the example configuration, the test should fail and logs following message:
 

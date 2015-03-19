@@ -42,10 +42,11 @@ var WatcherPlugin = (function () {
      * 
      * @param {object} Configuration object with general maxAllowedWatchers and url patterns
      * @param {boolean} passed True if the test passed.
+     * @param {object} testInfo information about the test which just ran.
      *
      * @return {object} Returns a promise with the test result which will be merged with the Protractor result object.
      */
-    WatcherPlugin.prototype.postTest = function (config, passed) {
+    WatcherPlugin.prototype.postTest = function (config, passed, testInfo) {
         var deffered = q.defer();
         if (!passed) {
             deffered.resolve();
@@ -55,7 +56,7 @@ var WatcherPlugin = (function () {
         
         // jshint browser: true
         browser.driver.getCurrentUrl().then(function (url) {
-            browser.driver.executeScript(self.countNumberOfWatchers).then(function (numberOfWatchers) {
+            browser.driver.executeScript(WatcherPlugin.countNumberOfWatchers).then(function (numberOfWatchers) {
                 var maxAllowedWatchers = self.getMaxAllowedWatchers(config, url);
                 self.checkMaxAllowedWatchers(numberOfWatchers, maxAllowedWatchers);
                 deffered.resolve(testResult);
@@ -107,9 +108,10 @@ var WatcherPlugin = (function () {
      * Function that is used to find out the number of watchers. Found on
      * http://stackoverflow.com/questions/18499909/how-to-count-total-number-of-watches-on-a-page
      * 
+     * @static
      * @returns {number} Returns the number of watchers of the page which is being tested
      */
-    WatcherPlugin.prototype.countNumberOfWatchers = function () {
+    WatcherPlugin.countNumberOfWatchers = function () {
         var root = angular.element(document.getElementsByTagName('html'));
         var watchers = [];
         

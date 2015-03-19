@@ -40,6 +40,7 @@
     <Content Include=".gitignore" />
     <Content Include=".jshintrc" />
     <Content Include=".npmignore" />
+    <Content Include="CHANGELOG.md" />
     <Content Include="spec\testApp.html" />
     <Content Include="LICENSE" />
     <Content Include="package.json" />
