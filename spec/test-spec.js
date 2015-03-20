@@ -11,9 +11,21 @@ describe('protractor-watcher-plugin test', function () {
         expect(element(by.binding('friends.length')).getText()).toEqual('10');
     });
     
+    afterEach(function () { 
+        var name = require.resolve('../index.js');
+        delete require.cache[name];
+        plugin = require('../index.js');
+    });
+    
     it('should stop plugin execution if test is already failed', function () {
         plugin.postTest({ maxAllowedWatchers: 50 }, false).then(function (result) {
             expect(result).toBeUndefined();
+        });
+    });
+    
+    it('should use the default value for maxAllowedWatchers if no value is set in the configuration', function () {
+        plugin.postTest({}, true).then(function (result) {
+            expect(0).toBe(result.failedCount);
         });
     });
 
@@ -43,9 +55,31 @@ describe('protractor-watcher-plugin test', function () {
         });
     });
     
+    it('should use the default value for maxAllowedWatchers if no value is set for this url pattern', function () {
+        var config = {
+            maxAllowedWatchers: 15,
+            urlPatterns: [{
+                    urlPattern: '/testApp.html'
+                }]
+        };
+        
+        plugin.postTest(config, true).then(function (result) {
+            expect(0).toBe(result.failedCount);
+        });
+    });
+    
     it('should fail if maxAllowedWatchers is exceeded', function () {
         plugin.postTest({ maxAllowedWatchers: 15 }, true).then(function (result) {
             expect(1).toBe(result.failedCount);
+        });
+    });
+    
+    it('should prompt an error message if maxAllowedWatchers is exceeded', function () {
+        var message = 'The maximum number of watchers [15] has been exceeded. ' + 
+            'Number of watchers found: [36] ';
+
+        plugin.postTest({ maxAllowedWatchers: 15 }, true).then(function (result) {
+            expect(message).toBe(result.assertions.errorMsg);
         });
     });
 
@@ -59,7 +93,7 @@ describe('protractor-watcher-plugin test', function () {
         };
 
         plugin.postTest(config, true).then(function (result) {
-            expect(2).toBe(result.failedCount);
+            expect(1).toBe(result.failedCount);
         });
     });
 

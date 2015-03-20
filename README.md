@@ -14,7 +14,7 @@ Keep in mind, the Protractor Plugin API is BETA and may change without a major v
 
 ## Getting Started
 
-The plugin runs with [Protractor](http://angular.github.io/protractor/#/) 2.0.0 and AngularJS 1.3.15. Once you're familiar with that process, you may install this plugin with the node package manager:
+The plugin runs with [Protractor](http://angular.github.io/protractor/#/) 1.8.0/2.0.0 and AngularJS 1.2/1.3. Once you're familiar with that process, you may install this plugin with the node package manager:
 
 ```
 npm install protractor-watcher-plugin
@@ -24,7 +24,7 @@ npm install protractor-watcher-plugin
 
 You can enable the plugin in the protractor configuration file. The maxAllowedWatchers attribute is used as default limit.
 The usage of urlPatterns is optional. If defined, the plugin will override the default limit with the limit, configured by
-the url pattern.
+the url pattern. If maxAllowedWatchers is undefined, the default value of 100 will be used.
 
 If the plugin is used as a node module, you may use it with the *package* instead of the *path* option.
 

@@ -24,13 +24,13 @@ var testResult = {
  * The plugin has to be added to the protractor configuration file.
  * 
  * plugins: [{
- *   path: "path/to/the/plugin",
- *   maxAllowedWatchers: 15,
+ *     path: "path/to/the/plugin",
+ *     maxAllowedWatchers: {Number} (Default - 100),
  *     urlPatterns: [{
- *       urlPattern: "#/mysite",
- *       maxAllowedWatchers: 12
+ *         urlPattern: {String and regex},
+ *         maxAllowedWatchers: {Number}
  *     }]
- *   }]
+ * }]
  */
 var WatcherPlugin = (function () {
     
@@ -38,13 +38,22 @@ var WatcherPlugin = (function () {
     }
     
     /**
+     * Default value for maxAllowedWatchers if no value is set in the plugin configuration.
+     * 
+     * @type {Number}
+     * @static
+     */
+    WatcherPlugin.defaultMaxAllowedWatchers = 100;
+    
+    /**
      * Called after each test block (in Jasmine, this means an `it` block) completes.
      * 
-     * @param {object} Configuration object with general maxAllowedWatchers and url patterns
-     * @param {boolean} passed True if the test passed.
-     * @param {object} testInfo information about the test which just ran.
+     * @param {Object} Configuration object with general maxAllowedWatchers and url patterns
+     * @param {Boolean} passed True if the test passed.
+     * @param {Object} testInfo information about the test which just ran.
      *
-     * @return {object} Returns a promise with the test result which will be merged with the Protractor result object.
+     * @return {!webdriver.promise.Promise.<Object>} A promise with the test result which will 
+     *      be merged with the Protractor result object.
      */
     WatcherPlugin.prototype.postTest = function (config, passed, testInfo) {
         var deffered = q.defer();
@@ -71,15 +80,15 @@ var WatcherPlugin = (function () {
      * Reads the plugin configuration and returns the maximum allowed number of watchers for the page which is being tested.
      * If more than one pattern is valid, it will return the last matched in the configuration object.
      * 
-     * @param {object} config Configuration object with general maxAllowedWatchers and url patterns
-     * @param {string} url The url of the page which is being tested
+     * @param {Object} config Configuration object with general maxAllowedWatchers and url patterns
+     * @param {String} url The url of the page which is being tested
      */
     WatcherPlugin.prototype.getMaxAllowedWatchers = function (config, url) {
-        var maxAllowedWatchers = config.maxAllowedWatchers;
+        var maxAllowedWatchers = config.maxAllowedWatchers || WatcherPlugin.defaultMaxAllowedWatchers;
         if (config.urlPatterns) {
             config.urlPatterns.forEach(function (conf) {
                 if (url.match(conf.urlPattern)) {
-                    maxAllowedWatchers = conf.maxAllowedWatchers;
+                    maxAllowedWatchers = conf.maxAllowedWatchers || WatcherPlugin.defaultMaxAllowedWatchers;
                 }
             });
         }
@@ -89,8 +98,8 @@ var WatcherPlugin = (function () {
     /**
      * Checks if the number of watchers has been exceeded the maxium configured in the plugin configuration
      * 
-     * @param {number} numberOfWatchers
-     * @param {number} maxAllowedWatchers
+     * @param {Number} numberOfWatchers The number of watchers of the page which is being tested
+     * @param {Number} maxAllowedWatchers The number of allowed watchers for this page
      */
     WatcherPlugin.prototype.checkMaxAllowedWatchers = function (numberOfWatchers, maxAllowedWatchers) {
         if (maxAllowedWatchers < numberOfWatchers) {
@@ -109,7 +118,7 @@ var WatcherPlugin = (function () {
      * http://stackoverflow.com/questions/18499909/how-to-count-total-number-of-watches-on-a-page
      * 
      * @static
-     * @returns {number} Returns the number of watchers of the page which is being tested
+     * @returns {Number} The number of watchers of the page which is being tested
      */
     WatcherPlugin.countNumberOfWatchers = function () {
         var root = angular.element(document.getElementsByTagName('html'));
@@ -137,10 +146,10 @@ var WatcherPlugin = (function () {
                 watchersWithoutDuplicates.push(item);
             }
         });
-
+        
         return watchersWithoutDuplicates.length;
     };
-
+    
     return WatcherPlugin;
 })();
 
