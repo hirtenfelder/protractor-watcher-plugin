@@ -11,7 +11,7 @@ describe('protractor-watcher-plugin test', function () {
         expect(element(by.binding('friends.length')).getText()).toEqual('10');
     });
     
-    afterEach(function () { 
+    afterEach(function () {
         var name = require.resolve('../index.js');
         delete require.cache[name];
         plugin = require('../index.js');
@@ -82,7 +82,7 @@ describe('protractor-watcher-plugin test', function () {
             expect(message).toBe(result.assertions.errorMsg);
         });
     });
-
+    
     it('should fail if url pattern exceeds number of watchers', function () {
         var config = {
             maxAllowedWatchers: 50,
