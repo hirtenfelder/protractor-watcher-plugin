@@ -14,7 +14,7 @@ Keep in mind, the Protractor Plugin API is BETA and may change without a major v
 
 ## Getting Started
 
-The plugin runs with [Protractor](http://angular.github.io/protractor/#/) 1.8.0/2.0.0 and AngularJS 1.2/1.3. Once you're familiar with that process, you may install this plugin with the node package manager:
+The plugin runs with [Protractor](http://angular.github.io/protractor/#/) 2.1.0 and AngularJS 1.3/1.4. Once you're familiar with that process, you may install this plugin with the node package manager:
 
 ```
 npm install protractor-watcher-plugin
