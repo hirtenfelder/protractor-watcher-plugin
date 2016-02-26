@@ -1,6 +1,10 @@
 ﻿# Watcher Plugin
 
 [![Build Status](https://api.travis-ci.org/hirtenfelder/protractor-watcher-plugin.svg?branch=master)](https://travis-ci.org/hirtenfelder/protractor-watcher-plugin)
+[![NPM version](https://img.shields.io/npm/v/protractor-watcher-plugin.svg)](https://www.npmjs.com/package/protractor-watcher-plugin)
+[![Dependency Status](https://img.shields.io/david/hirtenfelder/protractor-watcher-plugin.svg?style=flat)](https://david-dm.org/hirtenfelder/protractor-watcher-plugin)
+[![devDependency Status](https://img.shields.io/david/dev/hirtenfelder/protractor-watcher-plugin.svg?style=flat)](https://david-dm.org/hirtenfelder/protractor-watcher-plugin#info=devDependencies&view=table)
+[![DUB](https://img.shields.io/dub/l/vibe-d.svg)](LICENSE)
 
 To many watchers may have a negative impact for the performance of an [AngularJS](https://www.angularjs.org/) application. In particular
 if you don't use one-time-bindings (new with AngularJS 1.3) in cobination with ng-repeat or ng-grid.
