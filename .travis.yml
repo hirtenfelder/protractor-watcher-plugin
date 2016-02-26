@@ -3,9 +3,14 @@ node_js:
   - '0.12'
 before_script:
   - 'export DISPLAY=:99.0'
-  - 'sh -e /etc/init.d/xvfb start'
+  - 'sh -e /etc/init.d/xvfb start &'
+  - sleep 5
   - 'npm install -g http-server jshint protractor q'
-  - 'webdriver-manager update'
+  - 'webdriver-manager update &'
   - sleep 5
 script:
-  - 'npm test'
+  - 'webdriver-manager start &'
+  - sleep 5
+  - 'http-server spec/ -p 9000 &'
+  - sleep 5
+  - 'protractor spec/test-conf.js'
