@@ -7,7 +7,7 @@
 [![DUB](https://img.shields.io/dub/l/vibe-d.svg)](LICENSE)
 
 To many watchers may have a negative impact for the performance of an [AngularJS](https://www.angularjs.org/) application. In particular
-if you don't use one-time-bindings (new with AngularJS 1.5) in cobination with ng-repeat or ng-grid.
+if you don't use one-time-bindings in cobination with ng-repeat or ng-grid.
 This [Protractor plugin](https://github.com/angular/protractor/blob/master/docs/plugins.md) will help you, 
 to keep the number of watchers used by your AngularJS application in sight. 
 
