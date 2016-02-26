@@ -1,5 +1,13 @@
 ﻿# Watcher Plugin
 
+## 0.0.5
+
+The plugin runs now with [Protractor](http://angular.github.io/protractor/#/) 3.1.x and was tested with AngularJS 1.5.
+
+## 0.0.4
+
+Bug fix
+
 ## 0.0.3
 
 The plugin runs now with [Protractor](http://angular.github.io/protractor/#/) 2.1.0 and was tested with AngularJS 1.4.

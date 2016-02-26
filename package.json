@@ -1,6 +1,6 @@
 {
     "name": "protractor-watcher-plugin",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "license": "MIT",
     "description": "Watcher Plugin for Protractor",
     "main": "index.js",
@@ -27,9 +27,9 @@
         "test": "node spec/test.js"
     },
     "devDependencies": {
-        "protractor": "2.1.0",
-        "q": "1.0.0",
-        "jshint": "2.6.3",
-        "http-server": "0.7.5"
+        "protractor": "~3.1.1",
+        "q": "~1.4.1",
+        "jshint": "~2.9.1",
+        "http-server": "~0.9.0"
     }
 }
