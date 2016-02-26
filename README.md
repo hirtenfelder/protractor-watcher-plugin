@@ -1,5 +1,7 @@
 ﻿# Watcher Plugin
 
+[![Build Status](https://api.travis-ci.org/hirtenfelder/protractor-watcher-plugin.svg?branch=master)](https://travis-ci.org/hirtenfelder/protractor-watcher-plugin)
+
 To many watchers may have a negative impact for the performance of an [AngularJS](https://www.angularjs.org/) application. In particular
 if you don't use one-time-bindings (new with AngularJS 1.3) in cobination with ng-repeat or ng-grid.
 This [Protractor plugin](https://github.com/angular/protractor/blob/master/docs/plugins.md) will help you, 
